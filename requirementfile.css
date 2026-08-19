@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h2>Train Booking</h2>
+
+  <!-- Inputs -->
+  <p>Name: <input type="text" id="name"></p>
+  <p>Train: 
+    <select id="train">
+      <option>Bullet Express ($45)</option>
+      <option>Night Rider ($35)</option>
+    </select>
+  </p>
+
+  <button onclick="book()">Book Now</button>
+
+  <!-- Output (Hidden at first) -->
+  <div id="ticket" style="display:none">
+    <h3>Booking Confirmed!</h3>
+    <p>Passenger: <span id="outName"></span></p>
+    <p>Selected: <span id="outTrain"></span></p>
+  </div>
+
+  <!-- Logic -->
+  <script>
+    function book() {
+      var n = document.getElementById("name").value;
+      var t = document.getElementById("train").value;
+
+      if(n == "") { alert("Type your name!"); return; }
+
+      document.getElementById("outName").innerText = n;
+      document.getElementById("outTrain").innerText = t;
+      document.getElementById("ticket").style.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
