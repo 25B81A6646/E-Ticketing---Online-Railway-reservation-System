@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <!-- 1. HEADER -->
+  <h1>Railway Ticket Booking</h1>
+  <hr>
+
+  <!-- 2. TRAIN TIMETABLE -->
+  <h3>Available Trains:</h3>
+  <ul>
+    <li>Bullet Express (Leaves at 08:00 AM) - $45</li>
+    <li>Night Rider (Leaves at 09:00 PM) - $35</li>
+  </ul>
+  <hr>
+
+  <!-- 3. BOOKING FORM -->
+  <h3>Book Your Ticket:</h3>
+  
+  <p>Enter Name: <input type="text" id="nameInput"></p>
+  
+  <p>Select Train:
+    <select id="trainInput">
+      <option value="Bullet Express (08:00 AM)">Bullet Express</option>
+      <option value="Night Rider (09:00 PM)">Night Rider</option>
+    </select>
+  </p>
+
+  <button onclick="bookTicket()">Book Ticket Now</button>
+  <hr>
+
+  <!-- 4. THE TICKET RECEIPT (Hidden at first) -->
+  <div id="receipt" style="display: none; border: 1px solid black; padding: 10px; width: 300px;">
+    <h3>✔ Ticket Confirmed!</h3>
+    <p>Passenger: <span id="displayName"></span></p>
+    <p>Train: <span id="displayTrain"></span></p>
+  </div>
+
+  <!-- 5. THE LOGIC -->
+  <script>
+    function bookTicket() {
+      // 1. Get the values the user typed and selected
+      var name = document.getElementById("nameInput").value;
+      var train = document.getElementById("trainInput").value;
+
+      // 2. Stop if the name box is completely empty
+      if (name == "") {
+        alert("Please enter your name first!");
+        return;
+      }
+
+      // 3. Put the user's name and train choice into the receipt
+      document.getElementById("displayName").innerText = name;
+      document.getElementById("displayTrain").innerText = train;
+
+      // 4. Change the receipt box from hidden to visible
+      document.getElementById("receipt").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
